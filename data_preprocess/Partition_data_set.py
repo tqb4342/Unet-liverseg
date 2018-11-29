@@ -75,10 +75,10 @@ def random_list(start, stop, length):
 	return res
 
 if __name__ == '__main__':
-	img_path = '../original_data/img'
-	mask_path = '../original_data/label'
-	test_img_path = '../data/test/img0/img'
-	test_mask_path = '../data/test/mask0/mask'
-	validation_img_path = '../data/validation/img0/img'
-	validation_mask_path = '../data/validation/mask0/mask'
+	img_path = '../data/nor_img'
+	mask_path = '../data/label'
+	test_img_path = '../data/test/img/img0'
+	test_mask_path = '../data/test/mask/mask0'
+	validation_img_path = '../data/validation/img/img0'
+	validation_mask_path = '../data/validation/mask/mask0'
 	partition_data_set(img_path, mask_path, test_img_path, test_mask_path, validation_img_path, validation_mask_path)

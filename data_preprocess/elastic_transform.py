@@ -71,8 +71,8 @@ def draw_grid(im, grid_size):
 
 
 if __name__ == '__main__':
-    img_path =  '../data/train/img0/img'
-    mask_path = '../data/train/mask0/mask'
+    img_path =  '../data_2/train/img/img0'
+    mask_path = '../data_2/train/label/label0'
 
     img_list = sorted(os.listdir(img_path))
     mask_list = sorted(os.listdir(mask_path))
@@ -86,10 +86,10 @@ if __name__ == '__main__':
     for i in range(img_num):
         im = cv2.imread(os.path.join(img_path, img_list[i]), -1)
         im_mask = cv2.imread(os.path.join(mask_path, mask_list[i]), -1)
-
-        # Draw grid lines
-        draw_grid(im, 50)
-        draw_grid(im_mask, 50)
+        print(os.path.join(img_path, img_list[i]))
+        # # Draw grid lines
+        # draw_grid(im, 50)
+        # draw_grid(im_mask, 50)
 
         # Merge images into separete channels (shape will be (cols, rols, 2))
         im_merge = np.concatenate((im[...,None], im_mask[...,None]), axis=2)
@@ -101,7 +101,7 @@ if __name__ == '__main__':
         # Elastic deformation 10 times
         count = 0
               
-        while count < 15:
+        while count < 8:
 
             # Apply transformation on image
             im_merge_t = elastic_transform(im_merge, im_merge.shape[1] * 2, im_merge.shape[1] * 0.08, im_merge.shape[1] * 0.08)
